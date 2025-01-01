@@ -1,0 +1,9 @@
+sudo apt-get update && apt-get upgrade -y
+sudo systemctl status docker
+sudo apt install docker-ce
+docker run --name hivemq-edge -d -p 1883:1883 -p 8080:8080 hivemq/hivemq-edge
+docker ps -a
+df -h
+clear
+docker run --name hivemq-ce -d -p 1883:1883 hivemq/hivemq-ce
+clear

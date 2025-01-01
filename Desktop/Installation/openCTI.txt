@@ -1,0 +1,106 @@
+Update the repositories
+sudo apt-get update
+Install prereqs
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
+Add the GPG Key
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+Check the fingerprint of the key
+sudo apt-key fingerprint 0EBFCD88
+
+Add the stable repository
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+   
+Install Docker and Docker Compose
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose
+
+Check installed version
+sudo docker version
+
+Create Docker Swarm
+From the first node (AKA: Manager node) run the following command:
+
+docker swarm init --advertise-addr <MANAGER-IP>
+docker swarm join --token SWMTKN-1-03ne8pl1s0xko8yzc6z2trlgpld97pk1w46qm5y9vyc1kztj9r-5lskemedmbdibmmow8i8t05da 10.209.99.16:2377
+
+
+netstat -ltpdnd
+
+
+docker swarm join --token <LONG-TOKEN-ID> <IP-ADDRESS-OF-MANAGER:PORT>
+
+Install Portainer
+mkdir -p /opt/portainer && cd /opt/portainer
+curl -L https://downloads.portainer.io/portainer-agent-stack.yml -o portainer-agent-stack.yml
+
+docker stack deploy --compose-file=portainer-agent-stack.yml portainer
+
+
+
+docker swarm join --token SWMTKN-1-2ivnxzmjq9kcsn6d4mbj88dwbg9yist8gbdyt1z6kuye4u82ic-bbepv7ojldtrdyebagezeldya 192.168.228.138:2377
+
+
+
+https://www.youtube.com/watch?v=_I5hVwYX3-4&t=19s
+https://www.youtube.com/watch?v=h-q1lRsAhKM&t=234s
+https://www.youtube.com/watch?v=oV_wznNpZ3Y
+https://www.youtube.com/watch?v=AU5XvjvWyUQ
+https://www.youtube.com/watch?v=oV_wznNpZ3Y
+
+
+
+
+perfectly Complete
+
+  981  sudo apt install docker-compose
+  982  cd opt/
+  983  cd /opt/
+  984  sudo mkdir opencti
+  985  cd opencti
+  986  git clone https://github.com/OpenCTI-Platform/docker.git
+  987  ls -lh
+  988  cd docker
+  989  ls -lh
+  990  ls -la
+  991  cp .env.sample .env
+  992  nano .env
+  993  sudo systemctl start docker.service
+  994  sudo systemctl status docker.service
+  995  sudo docker-compose up -d
+
+
+
+
+OPENCTI_ADMIN_EMAIL=devops@ibos.io
+OPENCTI_ADMIN_PASSWORD=ibos@123
+OPENCTI_ADMIN_TOKEN=e8ce8807-8afe-4bf3-aadb-622a13fa09c3
+OPENCTI_BASE_URL=http://opencti:8080
+OPENCTI_HEALTHCHECK_ACCESS_KEY=7d15325a-755a-4e84-ae7f-8a582ccdad0e
+MINIO_ROOT_USER=admin@ibos.io
+MINIO_ROOT_PASSWORD=ibos@123
+RABBITMQ_DEFAULT_USER=admin@ibos.io
+RABBITMQ_DEFAULT_PASS=ibos@123
+CONNECTOR_EXPORT_FILE_STIX_ID=dd817c8b-abae-460a-9ebc-97b1551e70e6
+CONNECTOR_EXPORT_FILE_CSV_ID=7ba187fb-fde8-4063-92b5-c3da34060dd7
+CONNECTOR_EXPORT_FILE_TXT_ID=ca715d9c-bd64-4351-91db-33a8d728a58b
+CONNECTOR_IMPORT_FILE_STIX_ID=72327164-0b35-482b-b5d6-a5a3f76b845f
+CONNECTOR_IMPORT_DOCUMENT_ID=c3970f8a-ce4b-4497-a381-20b7256f56f0
+CONNECTOR_ANALYSIS_ID=4dffd77c-ec11-4abe-bca7-fd997f79fa36
+SMTP_HOSTNAME=localhost
+ELASTIC_MEMORY_SIZE=4G
+
+
+
+
+
+
+
